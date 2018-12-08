@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SocietyOfAC.Models.UserClass>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BasicLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<section>
+    <div class="container">
+        <h1 id="title-bar"><span>Squad 2016</span></h1>
+        <div class="row">
+            <style>
+                .team-heading {
+                    font-family: Arial;
+                    color: #00a885;
+                    text-decoration: none;
+                    border: none;
+                    width: auto;
+                }
+
+                h3 {
+                    color: #00a885;
+                }
+
+                .team-detail {
+                }
+
+                .col-xs-12 {
+                }
+
+                [class*=col-] {
+                    margin-bottom: 10px !important;
+                }
+
+                #exe {
+                    margin-top: 60px;
+                }
+            </style>
+            <div id="exe" style="width:100%;align-items:center;align-content:center">
+                <div class="col-md-12">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-xs-12 col-sm-3 col-lg-4" style="padding-left:0px;padding-right:0px"> <center> <a href="#">   <img src=@Url.Content("/Content/assets/images/nophoto.jpg") class="img-circle" style="width:115px;height:115px"> </a></center></div> <center>
+                            <div class="col-md-9 col-xs-12 col-sm-9 col-lg-6"><h3 class="team-heading">Hina Parveen</h3>President<br>2016-CS-175<br></div>
+                        </center>
+                    </div>
+                </div><table style="width:100%"></table>
+            </div>
+            <br>
+            <br>
+            <div id="mems" style="width:100%;align-items:center;align-content:center">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <center>
+                                <img src="@Url.Content(item.ImagePath)" class="img-circle" style="width:115px;height:115px" /> <br> @item.Name<br>@item.RegistrationNumber
+                            </center>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

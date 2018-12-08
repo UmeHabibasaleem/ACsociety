@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BasicLayout.cshtml";
+}
+
+<section style="margin-top:130px">
+    <div class="container">
+        <h1 id="title-bar"><span>Membership Request</span></h1>
+        <div class="row">
+           @using (Html.BeginForm("Applymembership", "MemberShip", FormMethod.Post))
+           {
+            @Html.AntiForgeryToken();
+            <center>
+                <h2>Terms and Conditions</h2>
+            </center>
+            <p>
+            </p><ol class="round">
+                <li class="one">
+                    <h3>Representation</h3>
+                    I will represent the aims and mission of the society.
+                </li>
+                <li class="two">
+                    <h3>Participation</h3>
+                    I will participate in organization, management and publicity activities.
+                </li>
+                <li class="three">
+                    <h3>Responsibility</h3>
+                    I will take up all tasks that the executive body assigns me with responsibility.
+                </li>
+                <li class="four">
+                    <h3>Support</h3>
+                    I will try to help, support and contribute to the society in every way I can.
+                </li>
+                <li class="five">
+                    <h3>Commitment</h3>
+                    If I am unable to make a commitment, I will clearly point out my position to the executive body in enough time so that they can make a replacement.
+                </li>
+
+                <li class="six">
+                    <h3>Behaviour</h3>
+                    I will maintain a respectful and acceptable behavior towards all members of the society including the executive body members and in case of any disregard or misconduct, I will be accountable to the executive body members.
+                </li>
+
+                <li class="seven">
+                    <h3>Notice</h3>
+                    If I feel that any other member is involved in any misconduct I will bring it to the notice of the executive body members.
+
+                </li>
+                <li class="eight">
+                    <h3>Agreement</h3>
+                    I agree to all the conditions and will abide by all the rules and regulations that the executive body imposes without question.
+
+
+                </li>
+
+
+
+            </ol>
+            <p></p>
+            <center>
+                
+
+                <button type="submit"   style="width:300px;height:40px" id="butt1">Apply for Membership</button>
+               @*<button type="submit" class="btn btn-default" id="butt" style="border-color:white">Register</button>*@ 
+            </center>
+           }
+            <div id="message">
+            </div>
+        </div>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert('@ViewBag.Message');
+            };
+        </script>
+    }
+</section>
+
+
+
+@*onclick="location.href='@Url.Action("ApplymembershipForm", "MemberShip")'"*@

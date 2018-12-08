@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ACsociety</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <!--Google Font link-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/slick/slick.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/slick/slick-theme.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/animate.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/iconfont.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/font-awesome.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/bootstrap.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/magnific-popup.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/bootsnav.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/slide.css")>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
+    <!--Theme custom css -->
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/style.css")>
+    <!--<link rel="stylesheet" href="assets/css/colors/maron.css">-->
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/responsive.css")>
+    <script src=@Url.Content("/Content/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js")></script>
+    <title>@Page.title</title>
+    <style>
+        .navbar .dropdown .dropdown-menu a:hover {
+            color: #ffffff !important;
+            background-color: #00a885 !important;
+        }
+
+        .navbar .dropdown .dropdown-menu a:active {
+            color: #fff !important;
+        }
+
+        #li:hover {
+            color: #00a885 !important;
+        }
+
+        .mySlides {
+            display: none;
+        }
+        #maincolor{
+            color: #ffffff !important;
+        }
+        #butt:hover{
+            color: #00a885 !important;
+            background-color:  #ffffff !important;
+        }
+        #butt1:hover{
+            color:  #ffffff !important;
+            background-color:  #00a885!important;
+        }
+        #padd
+        {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            background-color: rgb(220, 218, 218);
+            color:black !important;
+        }
+       
+    </style>
+    @RenderSection("head", required: false)
+    <title>@Page.Title</title>
+   
+</head>
+
+    
+<body>
+    <!-- Preloader --
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+            </div>
+        </div>
+    </div><!--End off Preloader -->
+
+    <div class="culmn">
+        <!--Home page style-->
+
+        <nav class="navbar navbar-default bootsnav navbar-fixed " style="background-color:black">
+
+
+
+            <div class="container">
+
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#brand">
+                        <img src="assets/images/logo.png" class="logo" alt="">
+                        <!--<img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">-->
+                    </a>
+                </div>
+                <!-- End Header Navigation -->
+                <!-- navbar menu -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href='@Url.Action("Index","Home")' id="li" style="color:white">Home</a></li>
+                        <li class="dropdown">
+
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white" id="li">
+                                Squad
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href='@Url.Action("Index","Squad")'>squad 2013-2014</a></li>
+                                <li><a href="#">squad 2015-2016</a></li>
+                                <li><a href="#">squad 2016-2017</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a id="li" ,class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white">
+                                Membership
+
+                            </a>
+                            <ul class="dropdown-menu" style="color:white">
+                                <li><a href='@Url.Action("Applymembership","MemberShip")'>Apply for Memebership</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white" id="li">
+                                Events
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href='@Url.Action("Events","Events")'>Event 2013-2014</a></li>
+                                <li><a href="#">Event 2015-2016</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white" id="li">
+                                About us
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href='@Url.Action("Motivation","AboutUs")'>Motivation for initiative</a></li>
+                               
+                          
+                            </ul>
+                        </li>
+
+
+                        @if (SocietyOfAC.Models.Logout.logout == 0)
+                        {
+                            <li><a href='@Url.Action("Login","Registration")' style="color:white" id="li">Login</a></li>
+                        }
+                        @if (SocietyOfAC.Models.Logout.logout == 1)
+                        {
+                            <li><a href='@Url.Action("LogOut","Registration")' style="color:white" id="li">Logout</a></li>
+                        }
+                        
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+        <!--Home Sections-->
+
+
+
+        @RenderBody();
+    </div>
+    
+    
+    <footer id="contact" class="footer action-lage bg-black p-top-80">
+        <!--  <div class="action-lage"></div>-->
+        <div class="container">
+            <div class="row">
+                <div class="widget_area">
+                    <div class="col-md-4">
+                        <div class="widget_item widget_about">
+                            <h5 class="text-white">About Us</h5>
+                            <p class="m-top-20">
+                                Lorem ipsum dolor sit amet consec tetur adipiscing elit
+                                nulla aliquet pretium nisi in cursus
+                                maecenas nec eleifen.
+                            </p>
+                            <div class="widget_ab_item m-top-30">
+                                <div class="item_icon"><i class="fa fa-location-arrow"></i></div>
+                                <div class="widget_ab_item_text">
+                                    <h6 class="text-white">Location</h6>
+                                    <p>
+                                        123 suscipit ipsum nam auctor
+                                        mauris dui, ac sollicitudin mauris,
+                                        Bandung
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="widget_ab_item m-top-30">
+                                <div class="item_icon"><i class="fa fa-phone"></i></div>
+                                <div class="widget_ab_item_text">
+                                    <h6 class="text-white">Phone :</h6>
+                                    <p>+1 2345 6789</p>
+                                </div>
+                            </div>
+                            <div class="widget_ab_item m-top-30">
+                                <div class="item_icon"><i class="fa fa-envelope-o"></i></div>
+                                <div class="widget_ab_item_text">
+                                    <h6 class="text-white">Email Address :</h6>
+                                    <p>Umehabiba.cs@gmail.com</p>
+                                </div>
+                            </div>
+                        </div><!-- End off widget item -->
+                    </div><!-- End off col-md-3 -->
+                    <div class="col-md-4">
+                        <h3 class="text-white">Testmonials</h3>
+                        <p class="testimonial">It's a perfect platform for those who have "the courage to know" !</p>
+                        <p class="author">Sammyan</p>
+                        <p class="testimonial">
+                            It'll touch the heights of sky Insha Allah.....!!!!
+                            Be determined AC Society Members.....!!!!!!
+                        </p>
+                        <p class="author">Sammyan</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="widget_item widget_service sm-m-top-50">
+                            <h5 class="text-white">Educational Resources</h5>
+                            <ul class="m-top-20">
+
+                                <li class="m-top-20"><a href="http://www.kics.edu.pk"><i class="fa fa-angle-right"></i>Al-khawarzmi Institute of Computer Science</a></li>
+                                <li class="m-top-20"><a href="http://www.uet.edu.pk"><i class="fa fa-angle-right"></i> University of Engineering and Technology UET Lahore</a></li>
+                                <li class="m-top-20"><a href="http://www.hec.edu.pk"><i class="fa fa-angle-right"></i> Higher Education Commission</a></li>
+                                <li class="m-top-20"><a href="http://www.coursera.org"><i class="fa fa-angle-right"></i> Coursera</a></li>
+                                <li class="m-top-20"><a href="http://www.ocw.mit.edu"><i class="fa fa-angle-right"></i> MIT Open CourseWare</a></li>
+
+                            </ul>
+                        </div><!-- End off widget item -->
+                    </div><!-- End off col-md-3 -->
+
+                </div>
+            </div>
+        </div>
+        <div class="main_footer fix bg-primary text-center p-top-40 p-bottom-30 m-top-80 ">
+            <div class="col-md-12">
+                <p class="wow fadeInRight" data-wow-duration="1s">
+                    Designed and Developed by Ume Habiba ,Hina and Rida
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JS includes -->
+    <script src=@Url.Content("/Content/assets/js/vendor/jquery-1.11.2.min.js")></script>
+    <script src=@Url.Content("/Content/assets/js/vendor/bootstrap.min.js")></script>
+    <script src=@Url.Content("/Content/assets/js/owl.carousel.min.js")></script>
+    <script src=@Url.Content("/Content/assets/js/jquery.magnific-popup.js")></script>
+    <script src=@Url.Content("/Content/assets/js/jquery.easing.1.3.js")></script>
+    <script src=@Url.Content("/Content/assets/css/slick/slick.js")></script>
+    <script src=@Url.Content("/Content/assets/css/slick/slick.min.js")></script>
+    <script src=@Url.Content("/Content/assets/js/jquery.collapse.js")></script>
+    <script src=@Url.Content("/Content/assets/js/bootsnav.js")></script>
+
+    <script src=@Url.Content("/Content/assets/js/plugins.js")></script>
+    <script src=@Url.Content("/Content/assets/js/main.js")></script>
+    <script src=@Url.Content("/Content/assets/js/owl.carousel.min.js")></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+   @* <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>*@
+    <script src="~/bundles/jqueryval"></script>
+
+
+
+
+    </body>
+</html>

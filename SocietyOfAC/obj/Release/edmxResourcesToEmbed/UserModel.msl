@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SocietyofACModelStoreContainer" CdmEntityContainer="SocietyofACEntities">
+    <EntitySetMapping Name="MemberShips">
+      <EntityTypeMapping TypeName="SocietyofACModel.MemberShip">
+        <MappingFragment StoreEntitySet="MemberShip">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+          <ScalarProperty Name="Question1" ColumnName="Question1" />
+          <ScalarProperty Name="Question2" ColumnName="Question2" />
+          <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="SocietyofACModel.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Conform_Password" ColumnName="Conform_Password" />
+          <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="upload_image">
+      <EntityTypeMapping TypeName="SocietyofACModel.upload_image">
+        <MappingFragment StoreEntitySet="upload_image">
+          <ScalarProperty Name="img_path" ColumnName="img_path" />
+          <ScalarProperty Name="img_description" ColumnName="img_description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

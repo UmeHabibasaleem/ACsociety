@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SocietyofACModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MemberShip">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Expertise" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Question1" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Question2" Type="nvarchar" MaxLength="1000" />
+    <Property Name="RegistrationNumber" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Team" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="status" Type="bit" />
+    <Property Name="emailsend" Type="bit" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="RegistrationNumber" />
+    </Key>
+    <Property Name="RegistrationNumber" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Conform_Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Imagepath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="upload_image">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="img_description" Type="nvarchar(max)" />
+    <Property Name="img_path" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_MemberShip_Registration">
+    <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
+    <End Role="MemberShip" Type="Self.MemberShip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration">
+        <PropertyRef Name="RegistrationNumber" />
+      </Principal>
+      <Dependent Role="MemberShip">
+        <PropertyRef Name="RegistrationNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SocietyofACModelStoreContainer">
+    <EntitySet Name="MemberShip" EntityType="Self.MemberShip" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="upload_image" EntityType="Self.upload_image" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MemberShip_Registration" Association="Self.FK_MemberShip_Registration">
+      <End Role="Registration" EntitySet="Registration" />
+      <End Role="MemberShip" EntitySet="MemberShip" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

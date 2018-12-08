@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SocietyOfAC.upload_image>
+
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<section>
+    <div class="container" style="margin-top:80px">
+        <h1 id="title-bar"><span>Events 2013-2014</span></h1>
+        <div class="row">
+            <h2>Events</h2>
+
+            <div>
+                <hr />
+                <div class="news">
+
+                    @foreach (upload_image img in @Model)
+                    {
+
+                        <a class="news-link" href="#" id="back">
+                            <div class="media clearfix background-clouds color-black" data-control="class" data-class-prefix="media clearfix" id="padd" style="background-color:#DCDCDC">
+                                <div class="pull-left">
+                                    <img src="@Url.Content(img.img_path)" style="width:400px;height:200px" />
+                                </div>
+                                <div class="media-body" >
+                                    <h3 class="media-heading">Inauguration of Software Square</h3>
+                                    <p><h4>@img.img_description</h4></p>
+
+                                </div>
+                            </div>
+                        </a>
+                        <br>
+                        <br>
+                    }
+                </div>
+            </div>
+            <p>
+
+            </p>
+        </div>
+    </div>
+</section>
