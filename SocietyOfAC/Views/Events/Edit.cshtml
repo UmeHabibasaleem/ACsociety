@@ -1,0 +1,120 @@
+﻿@model SocietyOfAC.upload_image
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BasicLayout.cshtml";
+}
+<div class="container" style="margin-top:100px ;padding-bottom:100px;width:800px; article, aside, figure,
+            menu, nav, section :
+                display: block;
+            background-color:#EFEFEF;
+            ">
+    <!-- ################################################################################################ -->
+    <h2>Edit Details Of Event</h2>
+
+    @using (Html.BeginForm("Edit", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MainHeading, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.MainHeading, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MainHeading, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.img_description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextAreaFor(model => model.img_description, 10, 55, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.img_description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @if (Model.img_path != null)
+                {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.img_path, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-8">
+                        @Html.HiddenFor(model => model.img_path, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.img_path, "", new { @class = "text-danger" })
+
+
+
+                        <img src="@Url.Content(Model.img_path)" class="marginauto" style="width:400px;height:250px ; top: 100px; right: 150px;  " />
+
+                        <br>
+                        <input align="right" type="file" name="ImageFile">
+
+                    </div>
+
+                </div>
+            }
+            <br />
+            <br />
+
+            @*<div class="form-group">
+                @*<img src="../@Model.img_path"/>*@
+            @*<div class="col-md-5">
+                        <p><b>Image : </b></p><img src="@Url.Content(Model.img_path)" style="width:400px;height:250px ; top: 50px; left: 50px;" />
+                        <br>
+                        <br />
+                    </div>
+                    </div>
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        <input type="file" name="ImageFile">
+                    </div>
+                </div>*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @* @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextBoxFor(model => model.Date, "{0:MM/dd/yyyy}", new { @class = "form-control datepicker" })
+
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Venue, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Venue, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Venue, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" id="butt" />
+                </div>
+            </div>
+
+
+        </div>
+
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

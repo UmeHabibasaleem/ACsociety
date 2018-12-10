@@ -34,5 +34,57 @@ namespace SocietyOfAC.Controllers
         {
             return View();
         }
+
+        public ActionResult Details(string RegistrationNumber)
+        {
+            using (SocietyofACEntities1 db = new SocietyofACEntities1())
+            {
+                return View(db.Registrations.Where(x => x.RegistrationNumber.Trim() == RegistrationNumber.Trim()).FirstOrDefault());
+            }
+        }
+
+
+        public ActionResult Delete(string RegistrationNumber)
+        {
+            try
+
+            {
+                using (SocietyofACEntities1 db = new SocietyofACEntities1())
+                {
+
+                    return View(db.Registrations.Where(x => x.RegistrationNumber == RegistrationNumber).FirstOrDefault());
+                }
+
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult Delete(string RegistrationNumber, FormCollection collection)
+        {
+            try
+
+            {
+                using (SocietyofACEntities1 db = new SocietyofACEntities1())
+                {
+                    Registration reg = db.Registrations.Where(x => x.RegistrationNumber == RegistrationNumber).FirstOrDefault();
+                    db.Registrations.Remove(reg);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+
+
+            catch
+            {
+                return View();
+            }
+        }
     }
+
+
 }

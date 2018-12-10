@@ -1,0 +1,73 @@
+﻿
+@model SocietyOfAC.Registration
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BasicLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Registration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conform_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conform_Password)
+        </dd>
+        @if (Model.Imagepath != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Imagepath)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.Imagepath)" class="img-circle" style="width:200px;height:250px ; top: 100px; right: 150px;  " />
+
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

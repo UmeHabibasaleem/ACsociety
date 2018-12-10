@@ -1,0 +1,83 @@
+﻿
+@model SocietyOfAC.upload_image
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BasicLayout.cshtml";
+}
+<div class="container" style="margin-top:100px ;padding-bottom:100px;width:800px; article, aside, figure,
+            menu, nav, section :
+                display: block;
+            background-color:#EFEFEF;
+            ">
+    <!-- ################################################################################################ -->
+
+    <h2>Detail Of Event</h2>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.img_description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.img_description)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MainHeading)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MainHeading)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Venue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Venue)
+            </dd>
+            @if (Model.img_path != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.img_path)
+                </dt>
+
+                <dd>
+
+                    <img src="@Url.Content(Model.img_path)" class="marginauto" style="width:400px;height:250px ; top: 100px; right: 150px;  " />
+
+                </dd>
+            }
+
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+
+

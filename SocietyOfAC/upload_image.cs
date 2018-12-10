@@ -11,13 +11,30 @@ namespace SocietyOfAC
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
 
     public partial class upload_image
     {
         public int id { get; set; }
+        [Display(Name = "Description")]
         public string img_description { get; set; }
+        [Display(Name = "Image")]
         public string img_path { get; set; }
+        [Display(Name = "Event Name")]
+        public string MainHeading { get; set; }
+
+        //
+        [DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        public Nullable<System.DateTime> Date { get; set; }
+        [DataType(DataType.Time)]
+
+        public Nullable<System.TimeSpan> Time { get; set; }
+
+        public string Venue { get; set; }
+
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }

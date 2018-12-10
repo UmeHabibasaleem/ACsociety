@@ -10,9 +10,11 @@
             background-color:#EFEFEF;
             ">
     <!-- ################################################################################################ -->
-    <h1 id="col"><b>Upload Post</b></h1>
+    <h1 id="col"><b>Add Event</b></h1>
     @using (Html.BeginForm("AddEvents", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
+
+
         @Html.AntiForgeryToken()
 
         <div class="block clear" style="height:300px;">
@@ -20,10 +22,50 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                <h2>Description</h2>
-                <div class="col-md-8">
-                    @Html.TextAreaFor(model => model.img_description,10,70, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.img_description, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MainHeading, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.MainHeading, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MainHeading, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Venue, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Venue, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Venue, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.img_description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.img_description, 10, 40, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.img_description, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
@@ -33,12 +75,12 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    <input type="file" name="ImageFile" required>
+                    <input type="file" name="ImageFile">
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-12", style="margin-top:50px;margin-left:10px;" >
+                <div class="col-md-offset-2 col-md-12" , style="margin-top:50px;margin-left:10px;">
                     <input type="submit" value="Uplaod_Post" class="btn btn-default" id="butt" />
                 </div>
             </div>
